@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ video_details.title }}</title>
+</head>
+<body>
+    <h1>{{ video_details.title }}</h1>
+    <img src="{{ video_details.thumbnail_url }}" alt="Thumbnail">
+    <h2>Available Formats:</h2>
+    <ul>
+    {% for format in video_details.formats %}
+        <li>
+            <a href="{% url 'download' %}?url={{ url }}&format_id={{ format.format_id }}">{{ format.height }}p</a>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
